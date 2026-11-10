@@ -13,7 +13,3 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8090/springcloudeureka/eureka/
-
-spring-boot-provider:
-  ribbon:
-    NFLoadBalancerRuleClassName: cn.wbnull.springbootconsumer.config.loadbalancer.GlobalRule

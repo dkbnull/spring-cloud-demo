@@ -1,7 +1,6 @@
 package cn.wbnull.springbootconsumer.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -13,14 +12,13 @@ import org.springframework.web.client.RestTemplate;
  *         https://github.com/dkbnull/SpringCloudDemo
  */
 @RestController
-@Scope("prototype")
+@RequiredArgsConstructor
 public class GatewayController {
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     @GetMapping(value = "/gateway")
-    public String gateway() throws Exception {
+    public String gateway() {
         return restTemplate.getForObject("http://spring-boot-provider/springbootprovider/gateway", String.class);
     }
 }

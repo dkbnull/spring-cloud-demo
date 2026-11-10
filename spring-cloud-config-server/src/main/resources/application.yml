@@ -1,5 +1,5 @@
 server:
-  port: 8092
+  port: 8094
   servlet:
     context-path: /springcloudconfig
 
@@ -12,6 +12,4 @@ spring:
         git:
           uri: https://github.com/dkbnull/SpringCloudDemo
           search-paths: spring-cloud-config-repo
-          username: ""
-          password: ""
-      label: master
+          default-label: master

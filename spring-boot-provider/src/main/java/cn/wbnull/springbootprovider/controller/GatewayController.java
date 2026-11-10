@@ -4,7 +4,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -16,13 +15,12 @@ import java.util.Map;
  * https://github.com/dkbnull/SpringCloudDemo
  */
 @RestController
-@Scope("prototype")
 @Api(tags = "测试接口")
 public class GatewayController {
 
     @GetMapping(value = "/gateway")
     @ApiOperation("测试接口")
-    public String gateway() throws Exception {
+    public String gateway() {
         return "hello world,this is spring-boot-provider";
     }
 
@@ -31,13 +29,13 @@ public class GatewayController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "name", value = "用户名", required = true)
     })
-    public String user(@RequestParam(value = "name") String name) throws Exception {
+    public String user(@RequestParam(value = "name") String name) {
         return "hello world,this is spring-boot-provider. name is " + name;
     }
 
     @PostMapping(value = "/users")
     @ApiOperation("批量用户测试接口")
-    public Map<String, String> users(@RequestBody Map<String, String> request) throws Exception {
+    public Map<String, String> users(@RequestBody Map<String, String> request) {
         request.put("hello world", "spring-boot-provider");
 
         return request;

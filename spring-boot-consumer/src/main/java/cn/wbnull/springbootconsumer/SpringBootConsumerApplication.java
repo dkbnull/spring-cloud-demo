@@ -3,6 +3,7 @@ package cn.wbnull.springbootconsumer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -15,9 +16,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @SpringBootApplication
 @EnableEurekaClient
-//@RibbonClient(name = "spring-boot-provider", configuration = cn.wbnull.config.LoadBalanced.class)
-//@RibbonClient(name = "spring-boot-provider", configuration = cn.wbnull.springbootconsumer.config.LoadBalanced.class)
-//@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = cn.wbnull.springbootconsumer.config.LoadBalanced.class)})
+@LoadBalancerClient(value = "spring-boot-provider", configuration = cn.wbnull.loadbalancer.GlobalLoadBalancerConfig.class)
 public class SpringBootConsumerApplication {
 
     @Bean

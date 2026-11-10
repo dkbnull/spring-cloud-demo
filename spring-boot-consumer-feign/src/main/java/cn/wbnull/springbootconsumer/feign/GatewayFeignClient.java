@@ -27,12 +27,12 @@ public interface GatewayFeignClient {
 //    String user(@RequestParam(value = "name") String name) throws Exception;
 
     @RequestLine("GET /springbootprovider/gateway")
-    String gateway() throws Exception;
+    String gateway();
 
     @RequestLine("POST /springbootprovider/user?name={name}")
-    String user(@Param("name") String name) throws Exception;
+    String user(@Param("name") String name);
 
     @RequestLine("POST /springbootprovider/users")
     @Headers("Content-Type: application/json")
-    Map<String, String> users(Map<String, String> request) throws Exception;
+    Map<String, String> users(Map<String, String> request);
 }

@@ -1,7 +1,6 @@
 package cn.wbnull.springcloudconfig.controller;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
  *         https://github.com/dkbnull/SpringCloudDemo
  */
 @RestController
-@Scope("prototype")
 public class GatewayController {
 
     @Value("${version}")
@@ -22,7 +20,7 @@ public class GatewayController {
     private String profile;
 
     @GetMapping(value = "/gateway")
-    public String gateway() throws Exception {
+    public String gateway() {
         return "version:" + version + ",profile:" + profile;
     }
 }

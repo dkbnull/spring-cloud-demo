@@ -15,7 +15,7 @@ import java.util.Map;
 public class GatewayFallback implements GatewayFeignClient {
 
     @Override
-    public Map<String, String> users(Map<String, String> request) throws Exception {
+    public Map<String, String> users(Map<String, String> request) {
         request.put("fallback", "spring-boot-consumer-feign-hystrix");
 
         return request;

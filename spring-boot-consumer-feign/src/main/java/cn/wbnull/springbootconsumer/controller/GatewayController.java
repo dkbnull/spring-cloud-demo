@@ -1,8 +1,7 @@
 package cn.wbnull.springbootconsumer.controller;
 
 import cn.wbnull.springbootconsumer.feign.GatewayFeignClient;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -14,24 +13,23 @@ import java.util.Map;
  *         https://github.com/dkbnull/SpringCloudDemo
  */
 @RestController
-@Scope("prototype")
+@RequiredArgsConstructor
 public class GatewayController {
 
-    @Autowired
-    private GatewayFeignClient gatewayFeignClient;
+    private final GatewayFeignClient gatewayFeignClient;
 
     @GetMapping(value = "/gateway")
-    public String gateway() throws Exception {
+    public String gateway() {
         return gatewayFeignClient.gateway();
     }
 
     @PostMapping(value = "/user")
-    public String user(@RequestParam(value = "name") String name) throws Exception {
+    public String user(@RequestParam(value = "name") String name) {
         return gatewayFeignClient.user(name);
     }
 
     @PostMapping(value = "/users")
-    public Map<String, String> users(@RequestBody Map<String, String> request) throws Exception {
+    public Map<String, String> users(@RequestBody Map<String, String> request) {
         return gatewayFeignClient.users(request);
     }
 }

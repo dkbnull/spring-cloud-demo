@@ -19,5 +19,5 @@ import java.util.Map;
 public interface GatewayFeignClient {
 
     @PostMapping(value = "/springbootprovider/users")
-    Map<String, String> users(Map<String, String> request) throws Exception;
+    Map<String, String> users(Map<String, String> request);
 }

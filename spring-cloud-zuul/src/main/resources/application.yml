@@ -6,6 +6,9 @@ server:
 spring:
   application:
     name: spring-cloud-zuul
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   zipkin:
     base-url: http://localhost:8092
     sender:

@@ -21,10 +21,11 @@ eureka:
 feign:
   hystrix:
     enabled: true
-
-ribbon:
-  ReadTimeout: 5000
-  ConnectTimeout: 5000
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
 
 hystrix:
   command:

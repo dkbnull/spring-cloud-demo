@@ -4,15 +4,6 @@ server:
 spring:
   application:
     name: spring-cloud-zipkin
-  sleuth:
-    sampler:
-      probability: 1.0
-
-management:
-  metrics:
-    web:
-      server:
-        auto-time-requests: false
 
 eureka:
   client:
